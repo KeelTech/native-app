@@ -1,0 +1,27 @@
+// [link](https://bit.ly/relative-path)
+
+{
+    "compilerOptions": {
+      "jsx": "react",
+      "target": "ES6",
+      "module": "commonjs",
+      "baseUrl": "./src/",
+      "paths": {
+        "@comps/*": ["comps/*"],
+        "@app/*": ["app/*"],
+        "@screens/*": ["screens/*"],
+        "@utils/*": ["utils/*"],
+        "@redux/*": ["redux/*"],
+  
+        "@comps": ["comps"],
+        "@app": ["app"],
+        "@screens": ["screens"],
+        "@utils": ["utils"],
+        "@redux": ["redux"],
+  
+        // "@assets/*": ["assets/*"],
+        // "@assets": ["assets"],
+      }
+    }
+  }
+  
