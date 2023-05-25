@@ -19,8 +19,8 @@
         "@utils": ["utils"],
         "@redux": ["redux"],
   
-        // "@assets/*": ["assets/*"],
-        // "@assets": ["assets"],
+        "@assets/*": ["../assets/*"],
+        "@assets": ["../assets"],
       }
     }
   }
