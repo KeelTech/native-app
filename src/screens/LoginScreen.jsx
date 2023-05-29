@@ -1,4 +1,4 @@
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import AppInput from '@comps/AppInput';
 import LoginGraphic from '@assets/graphic_login.svg';
@@ -6,13 +6,19 @@ import AppButton from '@comps/AppButton';
 import {AnimatePresence, MotiView} from 'moti';
 import Root from '@utils/Root';
 import {SCREEN_KEYS} from '@utils/Constants';
+import useTheme from '@utils/hooks/useTheme';
 
 const LoginScreen = () => {
   const [visible, setVisible] = useState(false);
+  const {fonts} = useTheme();
 
   useEffect(() => {
     setVisible(true);
   }, []);
+
+  function onSignUpPress() {
+    Root.navigate(SCREEN_KEYS.SIGN_UP_SCREEN);
+  }
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -32,10 +38,16 @@ const LoginScreen = () => {
           <AppInput label="Number" placeholder="9876543210" />
           <AppInput label="Password" placeholder="********" />
           <AppButton
+            title="Login"
             onPress={() => {
               Root.navigate(SCREEN_KEYS.SIGN_UP_SCREEN);
             }}
           />
+          <Text
+            onPress={onSignUpPress}
+            style={[styles.signUpText, {fontFamily: fonts?.medium}]}>
+            Not a user? Sign up
+          </Text>
         </MotiView>
       )}
     </AnimatePresence>
@@ -47,7 +59,13 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 16,
     justifyContent: 'center',
-    // alignItems: 'center',
+  },
+  signUpText: {
+    textAlign: 'center',
+    color: 'rgba(36, 41, 47, 1)',
+    fontSize: 16,
+    lineHeight: 42,
+    marginTop: 12,
   },
 });
 export default LoginScreen;

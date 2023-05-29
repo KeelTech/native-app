@@ -1,10 +1,13 @@
 import React from 'react';
 import {Text, StyleSheet} from 'react-native';
-// import { useMotiPressable } from 'moti/interactions'
+import PropTypes from 'prop-types';
 import {MotiPressable} from 'moti/interactions';
 import {useMemo} from 'react';
+import useTheme from '@utils/hooks/useTheme';
 
 const AppButton = props => {
+  const {title} = props;
+  const {fonts, colors} = useTheme();
   return (
     <MotiPressable
       animate={useMemo(
@@ -31,7 +34,16 @@ const AppButton = props => {
       )}
       style={styles.button}
       onPress={props?.onPress}>
-      <Text style={{color: 'white', fontSize: 16}}>Press Me</Text>
+      <Text
+        style={{
+          textAlign: 'center',
+          color: colors.primary,
+          fontFamily: fonts.bold,
+          fontSize: 16,
+          color: colors.secondary,
+        }}>
+        {title}
+      </Text>
     </MotiPressable>
   );
 };
@@ -45,5 +57,10 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
 });
+
+AppButton.propTypes = {
+  title: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
 
 export default AppButton;
