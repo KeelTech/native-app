@@ -10,7 +10,6 @@ import {useForm, Controller} from 'react-hook-form';
 
 const SignUpScreen = () => {
   const [visible, setVisible] = useState(false);
-  const [name, setName] = useState('');
 
   const {
     control,
@@ -24,8 +23,10 @@ const SignUpScreen = () => {
       password: '',
     },
   });
+
   const onSubmit = data => {
     console.log('formData: ', data);
+    Root.navigate(SCREEN_KEYS.PREFERENCE_SELECTION_SCREEN);
   };
 
   useEffect(() => {
@@ -42,13 +43,13 @@ const SignUpScreen = () => {
     <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
       <MotiView
         key={'sign_up_form'}
-        from={{
-          translateY: 40,
-        }}
-        transition={{type: 'timing', delay: 0}}
-        animate={{
-          translateY: 0,
-        }}
+        // from={{
+        //   translateY: 40,
+        // }}
+        // transition={{type: 'timing', delay: 0}}
+        // animate={{
+        //   translateY: 0,
+        // }}
         style={styles.container}>
         <View style={styles.graphicContainer}>
           <LoginGraphic width={250} height={250} />
@@ -82,7 +83,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              error={errors.name?.email}
+              error={errors.email?.message}
             />
           )}
           name="email"
@@ -99,7 +100,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              error={errors.name?.mobileNumber}
+              error={errors.mobileNumber?.message}
             />
           )}
           name="mobileNumber"
@@ -116,7 +117,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
-              error={errors.name?.password}
+              error={errors.password?.message}
             />
           )}
           name="password"
