@@ -9,6 +9,7 @@ const lightColors = {
   border: '#E8E8E8',
   error: 'rgba(215, 77, 92, 1)',
   grey: '#D4D4D4',
+  regularText: '#57606A',
 };
 
 const darkColors = {
@@ -16,9 +17,10 @@ const darkColors = {
   secondary: '#FeFeFe',
   accent: 'rgba(215, 77, 92, 1)',
   background: '#F5F5F5',
-  border: '#E8E8E8',
+  border: '#D7D7D7',
   error: 'rgba(215, 77, 92, 1)',
   grey: '#D4D4D4',
+  regularText: '#57606A',
 };
 
 const fonts = {

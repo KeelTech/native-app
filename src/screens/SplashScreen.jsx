@@ -1,16 +1,27 @@
 import {useEffect} from 'react';
 import {View} from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
 import Logo from '@assets/logo.svg';
 import Root from '@utils/Root';
 import {SCREEN_KEYS} from '@utils/Constants';
+import {useNavigation} from '@react-navigation/core';
+import RNBootSplash from 'react-native-bootsplash';
 
+/* 
+yarn react-native generate-bootsplash /Users/tanujsharma/Downloads/ic_launcher_round\ \(1\)/res/mipmap-xxxhdpi/ic_launcher_round_adaptive_fore.png \
+  --background-color=F5FCFF \
+  --logo-width=210 \
+  --assets-path=assets \
+  --flavor=main \
+  --platforms=android,ios
+
+
+*/
 const AppSplashScreen = () => {
+  const navigation = useNavigation();
   useEffect(() => {
-    SplashScreen.hide();
-
+    RNBootSplash.hide();
     setTimeout(() => {
-      Root.navigate(SCREEN_KEYS.LOGIN_SCREEN);
+      navigation.replace(SCREEN_KEYS.LOGIN_SCREEN);
     }, 300);
   }, []);
 

@@ -10,8 +10,8 @@ const dispatch = func => {
 const navigate = (name, params) => {
   navigationRef.current?.navigate(name, params);
 };
-const replace = (name, params) => {
-  navigationRef.current?.replace(name, params);
+const reset = (name, params) => {
+  navigationRef.current?.reset(name, params);
 };
 const goBack = () => {
   if (navigationRef.current?.goBack()) {
@@ -37,5 +37,5 @@ export default {
   goBack,
   navigate,
   dispatch,
-  replace,
+  reset,
 };
